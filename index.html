@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8x8 Bingo</title>
+  <title>Heritage Day Bingo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
+    <!-- Left Panel: Bingo board -->
     <div class="left">
       <h1>Heritage Day Bingo</h1>
-      <div class="counter">Generates: <span id="count">0</span></div>
-      <div id="board" class="bingo-board"></div>
-      <button onclick="generateBoard()">Generate</button>
-      <button onclick="resetGame()">Reset</button>
+      <div class="counter">Generates: <span id="counter">0</span></div>
+      <div id="bingo-board" class="bingo-board"></div>
+      <button id="generateBtn">Generate</button>
+      <button id="resetBtn">Reset</button>
     </div>
+
+    <!-- Right Panel: Submission -->
     <div class="right">
-      <h2>Submission</h2>
-      <div class="form-group">
-        <label for="team">Your Name:</label>
-        <input type="text" id="team" placeholder="Enter your name">
+      <div id="submission-panel">
+        <h2>Submission Area</h2>
+        
+        <label for="teamName">Your Name:</label>
+        <input type="text" id="teamName" placeholder="Enter your name">
+
+        <label for="province">Your Province:</label>
+        <input type="text" id="province" placeholder="Enter your province">
+
+        <button id="submitBtn" disabled>Submit</button>
+        <p>Please fill in both fields and submit.</p>
+
+        <hr>
+        <p><strong>Longest chain so far:</strong> <span id="longestChain">0</span></p>
       </div>
-      <div class="form-group">
-        <label for="province">Province:</label>
-        <input type="text" id="province" placeholder="Enter province">
-      </div>
-      <button id="submitBtn" disabled onclick="submitForm()">Submit</button>
-      <p class="note">Fill in both fields and submit.</p>
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
