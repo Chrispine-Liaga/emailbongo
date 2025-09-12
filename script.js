@@ -1,4 +1,4 @@
-  emailjs.init("k2hJWylUNz1SVubGE");
+  emailjs.init("public_k2hJWylUNz1SVubGE");
   
   // FULL LIST pasted here
 const wordList = [
