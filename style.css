@@ -1,3 +1,6 @@
+/* =========================
+   General Body & Container
+   ========================= */
 body {
   display: flex;
   justify-content: center;
@@ -9,7 +12,6 @@ body {
   padding: 20px;
 }
 
-
 .container {
   display: flex;
   gap: 40px;
@@ -17,7 +19,9 @@ body {
   width: 100%;
 }
 
-/* Left panel (board + buttons) */
+/* =========================
+   Left Panel (Board + Buttons)
+   ========================= */
 .left {
   flex: 2;
   text-align: center;
@@ -57,17 +61,18 @@ h1 {
   text-align: center;
   word-wrap: break-word;
   border-radius: 5px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .cell.crossed {
   background-color: #22c55e;
   text-decoration: line-through;
   color: #000;
+  transform: scale(1.05);
 }
 
 button {
-  margin: 5px;
+  margin: 5px 0;
   padding: 8px 14px;
   background-color: #065f46;
   color: #fff;
@@ -87,14 +92,20 @@ button:hover:enabled {
   background-color: #047857;
 }
 
-/* Right panel (submission area) */
+/* =========================
+   Right Panel (Submission Area)
+   ========================= */
 .right {
   flex: 1;
   background-color: #1a3c24;
   padding: 20px;
   border-radius: 8px;
-  min-width: 300px;   /* ensures it doesn’t shrink too much */
+  min-width: 300px;
   max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* spacing between children */
 }
 
 .right h2 {
@@ -102,6 +113,7 @@ button:hover:enabled {
   color: #a3e635;
 }
 
+/* Form Elements */
 label {
   display: block;
   margin: 12px 0 5px;
@@ -120,25 +132,47 @@ input:focus {
   outline: 2px solid #22c55e;
 }
 
-#submitBtn {
-  margin-top: 15px;
-  width: 100%;
-}
-
+/* Submission Panel */
 #submission-panel {
   background-color: #145214;
   padding: 15px;
   border-radius: 8px;
+  width: 100%;
+  color: #fff;
   font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#submission-panel p,
+p.note {
+  font-size: 12px;
+  color: #ccc;
+  margin: 0;
 }
 
 #longestChain {
   font-weight: bold;
-  color: #ffdf5d; /* yellow highlight */
+  color: #ffdf5d;
 }
 
-p.note, #submission-panel p {
-  font-size: 12px;
+/* Screenshot Button */
+#screenshotBtn {
+  display: block;
+  padding: 8px 14px;
+  background-color: #065f46;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
   margin-top: 10px;
-  color: #ccc;
+  transition: background-color 0.2s;
+}
+
+#screenshotBtn:hover {
+  background-color: #047857;
 }

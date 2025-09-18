@@ -32,6 +32,7 @@ const counter = document.getElementById("counter");
 const generateBtn = document.getElementById("generateBtn");
 const resetBtn = document.getElementById("resetBtn");
 const longestChainDisplay = document.getElementById("longestChain");
+const screenshotBtn = document.getElementById("screenshotBtn");
 
 let generateCount = 0;
 let longestChain = 0;
@@ -132,7 +133,7 @@ function checkWin(lastClickedIndex) {
     });
     updateLongestChain(max);
 
-    // ✅ Only show BINGO after the LAST tile (8th in line) was clicked
+    // ✅ Show BINGO only after last (8th) tile in a line is clicked
     if (indices.every(i => {
       const cell = document.querySelector(`.cell[data-index='${i}']`);
       return cell && cell.classList.contains("crossed");
@@ -172,10 +173,26 @@ function checkWin(lastClickedIndex) {
 }
 
 // =========================
+// Screenshot download (only left panel)
+// =========================
+function downloadScreenshot() {
+  const leftPanel = document.querySelector(".left");
+  html2canvas(leftPanel, {
+    backgroundColor: "#14532d" // ensure the green background is captured
+  }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "bingo-board.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+}
+
+// =========================
 // Event listeners
 // =========================
 generateBtn.addEventListener("click", generateCard);
 resetBtn.addEventListener("click", resetBoard);
+screenshotBtn.addEventListener("click", downloadScreenshot);
 
 // =========================
 // Initial board load
